@@ -1,0 +1,34 @@
+.navigation {
+    text-align: left;
+    display: flex;
+    color: #004AAD;
+    background-color:azure;
+    padding: .2%;
+    padding-right: 22%;
+  }
+
+  .navigationTabs {
+
+    display: flex;
+    gap: 20%;
+    font-size: 150%
+  }
+
+  .navigationLogo {
+    font-size: 175%;
+    font-weight: bold;
+    font-style: normal;
+    margin-right: 31.5%;
+    width: 10%;
+    height: auto;
+    padding: 0;
+}
+
+.tabs {
+    padding: .5% 100%;
+    border: solid #004AAD;
+    border-bottom: none;
+    border-radius: 0;
+
+
+}
