@@ -1,3 +1,5 @@
+# Veterinary Triage Management System
+
 # URL
 
 https://vettrack.onrender.com
@@ -35,5 +37,30 @@ The target audience would be large and small scale emergency and urgent care vet
 
 # STARTING APP
 
+# Clone Repository 
+
 To begin, navigate to terminal and clone the application's repository with: https://github.com/mharan71/vet_triage.git
 
+# Install Frontend
+
+Navigate to the Frontend directory and run command "npm install"
+
+# Install Backend
+
+Navigate to the Backend directory and install dependencies by running command "npm install"
+
+Enter your database credentials in the .env file
+
+# Launch Backend
+
+From Backend directory, run command "npm start"
+
+# Launch Frontend
+
+From Frontend Directory, run command "npm start"
+
+The application will subsequently launch from http://localhost:3000.
+
+# Future Security Enhancements
+
+CORS will be utilized to ensure appropriate access to resources, as well as the implementation of Helmet for bolstering http security.
