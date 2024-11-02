@@ -1,5 +1,6 @@
 import React from 'react';
 import './Navigation.css';
+import { Link } from 'react-router-dom';
 import logo from './images/VetTrack-logo.png';
 
 
@@ -8,8 +9,8 @@ function Navigation () {
         <nav className='navigation'>
             <img src={logo} alt='Vet Track' className='navigationLogo' />
             <div className='navigationTabs'>
-            <a href='triage' className='tabs'>Triage</a>
-            <a href='patients' className='tabs'>Patient</a>
+            <Link to="/" className='tabs'>Triage</Link>
+            <Link to="/patients" className='tabs'>Patients</Link>
             </div>
         </nav> 
     )

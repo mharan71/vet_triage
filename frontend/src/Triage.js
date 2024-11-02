@@ -4,17 +4,17 @@ import Navigation from './Navigation';
 import logo from './images/VetTrack-logo.png';
 
 
-function Patients () {
+function Triage () {
     return (
-        <div className="Patients">
+        <div className="Triage">
             <Navigation />
-            <header className= "Patients-header">
+            <header className= "Triage-header">
                 <h1>
-                 Patients
+                 Triage
                 </h1>            
             </header>
         </div>
     );
 }
 
-export default Patients;
+export default Triage;

@@ -2,20 +2,20 @@ import React from 'react';
 import './App.css';
 import Navigation from './Navigation';
 import logo from './images/VetTrack-logo.png';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Triage from './Triage';
+import Patients from './Patients';
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <Navigation />
-      <header className="App-header">
-        <h1>
-        Vet Track - Veterinary Triage system
-        </h1>
-        <p>
-        This is the home page for my veterinary triage management system.
-        </p>
-      </header>
+      <Routes>
+        <Route path= "/" element= {<Triage/>} />
+        <Route path= "/patients" element= {<Patients/>} />
+      </Routes>
     </div>
+    </Router>
   );
 }
 
