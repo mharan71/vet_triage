@@ -1,10 +1,9 @@
 import React from 'react';
-import './App.css';
-import Navigation from './Navigation';
-import logo from './images/VetTrack-logo.png';
+import './CSS/App.css';
+import Navigation from './Components/Navigation';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Triage from './Triage';
-import Patients from './Patients';
+import Triage from './Components/Triage';
+import Patients from './Components/Patients';
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
-import './Navigation.css';
+import '../CSS/Navigation.css';
 import { Link } from 'react-router-dom';
-import logo from './images/VetTrack-logo.png';
+import logo from '../images/VetTrack-logo.png';
 
 
 function Navigation () {
