@@ -15,18 +15,23 @@ import pencil from '../images/pencil.png';
 // Source: <forms> document on React.dev
 // Reference: https://react.dev/reference/react-dom/components/form#noun-labs-1201738-(2)
 
+// Description: Total web developer bootcamp
+// Source: The Web Developer Bootcamp 2024, Colt Steele
+// Reference: https://www.udemy.com/course/the-web-developer-bootcamp/?couponCode=NVD20PMUS
 
-// PatientBox component, with order, Patient Name, Visit Reason, and onSave function arguments
 
+// OwnerBox component, with owner name, phone, address, email, and onSave function arguments
 
-function OwnerBox ({ownerName, phone, address, email}) {
+function OwnerBox ({ownerName, phone, address, email, onSave}) {
 
+    // Enables toggling between view and edit, holds the edited owner values
     const [editing, setEditing] = useState(false);
     const [editedOwnerName, setEditedOwnerName] = useState(ownerName);
     const [editedPhone, setEditedPhone] = useState(phone);
     const [editedAddress, setEditedAddress] = useState(address);
     const [editedEmail, setEditedEmail] = useState(email);
 
+    // Function that enables saved changes
     const handleChange = () => {
         setEditing(false);
         onSave(editedOwnerName, editedPhone, editedAddress, editedEmail)
@@ -34,10 +39,12 @@ function OwnerBox ({ownerName, phone, address, email}) {
 
     return (
         <div className ="OwnerBox">
+            {/*} Editing mode that enables editing of owner details{*/}
             {editing ? (
                 <div>
                     <p><strong>Client Name: </strong> <input value={editedOwnerName} onChange={(event) => setEditedOwnerName(event.target.value)}/>
                     <strong>Address: </strong> <input value={editedAddress} onChange={(event) => setEditedAddress(event.target.value)}/>
+                    <button onClick={handleChange}><strong>Save</strong></button>
                     </p>
                     <p><strong>Phone Number: </strong> <input value={editedPhone} onChange={(event) => setEditedPhone(event.target.value)}/>
                     <strong>Email: </strong> <input value={editedEmail} onChange={(event) => setEditedEmail(event.target.value)}/>
@@ -45,6 +52,7 @@ function OwnerBox ({ownerName, phone, address, email}) {
                 </div>
             ) :
             (
+                // Viewing mode that displays owner information, pencil icon displayed to enable editing.
                 <div>
                 <p><strong>Client Name: </strong> {ownerName} <strong>Address: </strong> {address} <button onClick={() => setEditing(true)}><img src={pencil} alt='pencil' style= {{width: '15px', height: '15px' }} /></button></p>
                 <p><strong>Phone Number: </strong> {phone} <strong>Email: </strong> {email}</p>

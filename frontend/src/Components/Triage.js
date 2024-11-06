@@ -17,6 +17,9 @@ import PatientBoxTriage from './PatientBoxTriage';
 // Source: <forms> document on React.dev
 // Reference: https://react.dev/reference/react-dom/components/form#noun-labs-1201738-(2)
 
+// Description: Total web developer bootcamp
+// Source: The Web Developer Bootcamp 2024, Colt Steele
+// Reference: https://www.udemy.com/course/the-web-developer-bootcamp/?couponCode=NVD20PMUS
 
 
 function Triage () {
@@ -52,9 +55,9 @@ function Triage () {
             </header>
             {/* Description: Using map method to create list of patients in numbered order.
             Source: Rendering List document on React.dev
-            Reference: https://react.dev/learn/rendering-lists */}
+            Reference: https://react.dev/learn/rendering-lists, https://legacy.reactjs.org/docs/lists-and-keys.html */}
 
-            {/* Iterating over patient list, creating PatientBox component for each */}
+            {/* Iterating over patient list, creating PatientBoxTriage component for each */}
             <div className='queue'>
                 {patients.map((patient, index) =>
                     <PatientBoxTriage

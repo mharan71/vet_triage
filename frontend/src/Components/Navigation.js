@@ -3,6 +3,11 @@ import '../CSS/Navigation.css';
 import { Link } from 'react-router-dom';
 import logo from '../images/VetTrack-logo.png';
 
+// Description: Total web developer bootcamp
+// Source: The Web Developer Bootcamp 2024, Colt Steele
+// Reference: https://www.udemy.com/course/the-web-developer-bootcamp/?couponCode=NVD20PMUS
+
+// Navigation component, displays links to triage.js and patients.js pages
 
 function Navigation () {
     return (
@@ -14,7 +19,7 @@ function Navigation () {
             </div>
         </nav> 
     )
-
 }
+
 
 export default Navigation;

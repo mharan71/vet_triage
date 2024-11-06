@@ -15,15 +15,21 @@ import pencil from '../images/pencil.png';
 // Source: <forms> document on React.dev
 // Reference: https://react.dev/reference/react-dom/components/form#noun-labs-1201738-(2)
 
+// Description: Total web developer bootcamp
+// Source: The Web Developer Bootcamp 2024, Colt Steele
+// Reference: https://www.udemy.com/course/the-web-developer-bootcamp/?couponCode=NVD20PMUS
 
-// PatientBox component, with order, Patient Name, Visit Reason, and onSave function arguments
+
+// PatientBoxTriage component, with order, Patient Name, Visit Reason, and onSave function arguments
 
 function PatientBoxTriage ({order, patientName, visitReason, onSave}) {
 
+    // Enables toggling between view and edit, holds the edited PAtient name and visit reason values
     const [editing, setEditing] = useState(false);
     const [editedPatientName, setEditedPatientName] = useState(patientName);
     const [editedVisitReason, setEditedVisitReason] = useState(visitReason);
 
+    // Function that enables saved changes
     const handleChange = () => {
         setEditing(false);
         onSave(editedPatientName, editedVisitReason);
@@ -32,6 +38,7 @@ function PatientBoxTriage ({order, patientName, visitReason, onSave}) {
 
     return (
         <div className ="PatientBoxTriage">
+            {/*} Editing mode that enables editing of patient details{*/}
             {editing ? (
                 <div>
                     <p>{order}. <input value={editedPatientName} onChange={(event) => setEditedPatientName(event.target.value)}/> <button onClick={handleChange}><strong>Save</strong></button></p>
@@ -39,6 +46,7 @@ function PatientBoxTriage ({order, patientName, visitReason, onSave}) {
                 </div>
             ) : 
             (
+                // Viewing mode that displays patient information, pencil icon displayed to enable editing.
                 <div>
                     <p>{order}. <strong>{patientName}</strong><button onClick={() => setEditing(true)}><img src={pencil} alt='pencil' style= {{width: '15px', height: '15px' }} /></button></p> 
                     <p>Reason for visit: {visitReason}</p>
