@@ -20,19 +20,22 @@ import pencil from '../images/pencil.png';
 // Reference: https://www.udemy.com/course/the-web-developer-bootcamp/?couponCode=NVD20PMUS
 
 
+
 // PatientBoxTriage component, with order, Patient Name, Visit Reason, and onSave function arguments
 
-function PatientBoxTriage ({order, patientName, visitReason, onSave}) {
+function PatientBoxTriage ({order, patientName, species, visitReason, ETA, onSave}) {
 
     // Enables toggling between view and edit, holds the edited PAtient name and visit reason values
     const [editing, setEditing] = useState(false);
     const [editedPatientName, setEditedPatientName] = useState(patientName);
+    const [editedSpecies, setEditedSpecies] = useState(species);
     const [editedVisitReason, setEditedVisitReason] = useState(visitReason);
+    const [editedETA, setEditedETA] = useState(ETA);
 
     // Function that enables saved changes
     const handleChange = () => {
         setEditing(false);
-        onSave(editedPatientName, editedVisitReason);
+        onSave(editedPatientName, editedSpecies, editedVisitReason, editedETA);
     };
 
 
@@ -53,8 +56,16 @@ function PatientBoxTriage ({order, patientName, visitReason, onSave}) {
                         <input type= 'text' value={editedPatientName} onChange={(event) => setEditedPatientName(event.target.value)}/>
                     </div>
                     <div className='form-group'>
+                        <label><strong>Species: </strong></label>
+                        <input type='text' value={editedSpecies} onChange={(event) => setEditedSpecies(event.target.value)}/>
+                    </div>
+                    <div className='form-group'>
                         <label><strong>Reason for Visit: </strong></label>
                         <input type='text' value={editedVisitReason} onChange={(event) => setEditedVisitReason(event.target.value)}/>
+                    </div>
+                    <div className='form-group'>
+                        <label><strong>ETA: </strong></label>
+                        <input type='text' value={editedETA} onChange={(event) => setEditedETA(event.target.value)}/>
                     </div>
                 </div>
             ) : 
@@ -71,7 +82,13 @@ function PatientBoxTriage ({order, patientName, visitReason, onSave}) {
                         <strong>Patient Name: </strong><span>{patientName}</span>
                     </div>
                     <div className='form-group'>
+                        <strong>Species: </strong><span>{species}</span>
+                    </div>
+                    <div className='form-group'>
                         <strong>Reason for Visit: </strong><span>{visitReason}</span>
+                    </div>
+                    <div className='form-group'>
+                        <strong>ETA: </strong><span>{editedETA}</span>
                     </div>
                 </div>
             )}
