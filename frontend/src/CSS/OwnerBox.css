@@ -1,0 +1,94 @@
+.OwnerBox {
+    padding: 20px 30px;
+    flex: 1;
+    border: solid #004AAD;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    text-align: left;
+    margin: 10px auto;
+    text-decoration: none;
+    color: black;
+    font-size: 1.1em;
+    line-height: 1.6;
+    background-color: #e4eef7;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
+  }
+  
+.OwnerBox p {
+    margin-bottom: 15px;
+}
+
+.details {
+    flex: 1;
+}
+
+.form-group strong {
+    display: inline-block;
+    width: 200px;
+    color: #333
+    
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: black;
+    font-size: 1.1em;
+}
+
+.form-group input {
+    flex: 1;
+    padding: 6px;
+    color: black;
+    font-size: 1.1em;
+    border-radius: 5px;
+    border: 1px solid #004AAD;
+}
+
+.form-group span {
+    flex: 1;
+    color: black;
+}
+
+
+.edit-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    align-items: left;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    background-color: #f4f8fb;
+}
+
+.edit-button img {
+    align-items: center;
+    width: 20px;
+    height: 20px
+}
+
+.edit-button:hover {
+    background-color: #004AAD;
+}
+
+.save-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 47px;
+    height: 40px;
+    border-radius: 10px;
+    align-items: left;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    background-color: #f4f8fb;
+    text-align: center;
+}
+
+.save-button:hover {
+    background-color: #004AAD;
+}

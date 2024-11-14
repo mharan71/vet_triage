@@ -1,34 +1,38 @@
 .navigation {
-    text-align: left;
-    display: flex;
-    color: #004AAD;
-    background-color:azure;
-    padding: .2%;
-    padding-right: 22%;
-  }
+  display: flex;
+  color: #004AAD;
+  align-items: center;
+  background-color:azure;
+  padding: 0 20px;
+}
 
-  .navigationTabs {
+.navigationTabs {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  display: flex;
+  gap: 15px;
+  font-size: 25px;
+ 
+}
 
-    display: flex;
-    gap: 20%;
-    font-size: 150%
-  }
-
-  .navigationLogo {
-    font-size: 175%;
-    font-weight: bold;
-    font-style: normal;
-    margin-right: 31.5%;
-    width: 10%;
-    height: auto;
-    padding: 0;
+.navigationLogo {
+  
+  width: 120px;
+  height: 100%;
+  padding: 0;
 }
 
 .tabs {
-    padding: .5% 100%;
-    border: solid #004AAD;
-    border-bottom: none;
-    border-radius: 0;
-
-
+  padding: 10px 20px;
+  flex: 1;
+  border: solid #7190b9;
+  border-bottom: none;
+  border-radius: 15px;
+  text-align: center;
+  margin: 0 5px;
+  text-decoration: none;
+  color: rgb(15, 29, 119);
+  background-color: #e4eef7;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

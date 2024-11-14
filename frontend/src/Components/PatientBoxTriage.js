@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import '../CSS/App.css';
+import '../CSS/PatientBoxTriage.css';
 import pencil from '../images/pencil.png';
 
 // Description: Managing state using React
@@ -41,19 +41,43 @@ function PatientBoxTriage ({order, patientName, visitReason, onSave}) {
             {/*} Editing mode that enables editing of patient details{*/}
             {editing ? (
                 <div>
-                    <p>{order}. <input value={editedPatientName} onChange={(event) => setEditedPatientName(event.target.value)}/> <button onClick={handleChange}><strong>Save</strong></button></p>
-                    <p>Reason for visit: <input value={editedVisitReason} onChange={(event) => setEditedVisitReason(event.target.value)}/></p>
+                    <button onClick={handleChange} className="save-button">
+                        <strong>Save</strong>
+                    </button>
+                    <div className='form-group'>
+                        <label><strong>Place in Queue: </strong></label>
+                        <label>{order}.</label>
+                    </div>
+                    <div className='form-group'>
+                        <label><strong>Patient Name: </strong></label>
+                        <input type= 'text' value={editedPatientName} onChange={(event) => setEditedPatientName(event.target.value)}/>
+                    </div>
+                    <div className='form-group'>
+                        <label><strong>Reason for Visit: </strong></label>
+                        <input type='text' value={editedVisitReason} onChange={(event) => setEditedVisitReason(event.target.value)}/>
+                    </div>
                 </div>
             ) : 
             (
                 // Viewing mode that displays patient information, pencil icon displayed to enable editing.
                 <div>
-                    <p>{order}. <strong>{patientName}</strong><button onClick={() => setEditing(true)}><img src={pencil} alt='pencil' style= {{width: '15px', height: '15px' }} /></button></p> 
-                    <p>Reason for visit: {visitReason}</p>
+                    <button onClick={() => setEditing(true)} className="edit-button">
+                        <img src={pencil} alt='edit'/>
+                    </button>
+                    <div className='form-group'>
+                        <strong>Place in Queue: </strong><span>{order}</span>
+                    </div>
+                    <div className='form-group'>
+                        <strong>Patient Name: </strong><span>{patientName}</span>
+                    </div>
+                    <div className='form-group'>
+                        <strong>Reason for Visit: </strong><span>{visitReason}</span>
+                    </div>
                 </div>
             )}
         </div>
     );
 }
+
 
 export default PatientBoxTriage;

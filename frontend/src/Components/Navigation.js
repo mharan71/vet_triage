@@ -2,6 +2,7 @@ import React from 'react';
 import '../CSS/Navigation.css';
 import { Link } from 'react-router-dom';
 import logo from '../images/VetTrack-logo.png';
+import iconimage from '../images/VetTrack-logo.png';
 
 // Description: Total web developer bootcamp
 // Source: The Web Developer Bootcamp 2024, Colt Steele
@@ -12,7 +13,9 @@ import logo from '../images/VetTrack-logo.png';
 function Navigation () {
     return (
         <nav className='navigation'>
-            <img src={logo} alt='Vet Track' className='navigationLogo' />
+            <Link to= "/">
+                <img src={iconimage} alt='Vet Track' className='navigationLogo' />
+            </Link>
             <div className='navigationTabs'>
             <Link to="/" className='tabs'>Triage</Link>
             <Link to="/patients" className='tabs'>Patients</Link>

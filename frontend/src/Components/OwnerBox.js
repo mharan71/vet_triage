@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import '../CSS/App.css';
 import pencil from '../images/pencil.png';
+import '../CSS/OwnerBox.css';
 
 // Description: Managing state using React
 // Source: Managing State document on React.dev
@@ -39,28 +40,55 @@ function OwnerBox ({ownerName, phone, address, email, onSave}) {
 
     return (
         <div className ="OwnerBox">
+            <h2><strong>Owner Information</strong></h2>
+
             {/*} Editing mode that enables editing of owner details{*/}
             {editing ? (
                 <div>
-                    <p><strong>Client Name: </strong> <input value={editedOwnerName} onChange={(event) => setEditedOwnerName(event.target.value)}/>
-                    <strong>Address: </strong> <input value={editedAddress} onChange={(event) => setEditedAddress(event.target.value)}/>
-                    <button onClick={handleChange}><strong>Save</strong></button>
-                    </p>
-                    <p><strong>Phone Number: </strong> <input value={editedPhone} onChange={(event) => setEditedPhone(event.target.value)}/>
-                    <strong>Email: </strong> <input value={editedEmail} onChange={(event) => setEditedEmail(event.target.value)}/>
-                    </p>
+                    <button onClick={handleChange} className="save-button">
+                        <strong>Save</strong>
+                    </button>
+                    <div className='form-group'>
+                    <label><strong>Client Name: </strong></label> 
+                    <input type= 'text' value={editedOwnerName} onChange={(event) => setEditedOwnerName(event.target.value)}/>
+                    </div>
+                    <div className='form-group'>
+                    <label><strong>Address: </strong></label> 
+                    <input type= 'text' value={editedAddress} onChange={(event) => setEditedAddress(event.target.value)}/>
+                    </div>
+                    <div className='form-group'>
+                    <label><strong>Phone Number: </strong></label> 
+                    <input type='text' value={editedPhone} onChange={(event) => setEditedPhone(event.target.value)}/>
+                    </div>
+                    <div className='form-group'>
+                    <label><strong>Email: </strong></label> 
+                    <input type='text' value={editedEmail} onChange={(event) => setEditedEmail(event.target.value)}/>
+                    </div>
                 </div>
+
             ) :
             (
-                // Viewing mode that displays owner information, pencil icon displayed to enable editing.
-                <div>
-                <p><strong>Client Name: </strong> {ownerName} <strong>Address: </strong> {address} <button onClick={() => setEditing(true)}><img src={pencil} alt='pencil' style= {{width: '15px', height: '15px' }} /></button></p>
-                <p><strong>Phone Number: </strong> {phone} <strong>Email: </strong> {email}</p>
-                </div>
+                    // Viewing mode that displays owner information, pencil icon displayed to enable editing.
+                <div className='details'>
+                    <button onClick={() => setEditing(true)} className="edit-button">
+                            <img src={pencil} alt='edit'/>
+                    </button>
+                    <div className= 'form-group'>
+                    <strong>Client Name: </strong>  <span>{ownerName}</span>
+                    </div>
+                    <div className= 'form-group'>
+                    <strong>Address: </strong> <span>{address}</span>
+                    </div>
+                    <div className= 'form-group'>
+                    <strong>Phone Number: </strong> <span>{phone}</span>
+                    </div>
+                    <div className= 'form-group'>
+                    <strong>Email: </strong><span>{email}</span>
+                    </div>
+                </div>  
+            
             )}
         </div>
-    );
-}
-
+    );}
 
 export default OwnerBox;

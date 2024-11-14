@@ -21,6 +21,9 @@ import PatientBoxTriage from './PatientBoxTriage';
 // Source: The Web Developer Bootcamp 2024, Colt Steele
 // Reference: https://www.udemy.com/course/the-web-developer-bootcamp/?couponCode=NVD20PMUS
 
+// Drag and Drop with react-beautiful-dnd
+// Source: Drag and Drop with react-beautiful-dnd, Laith Academy
+// Reference: https://www.youtube.com/watch?v=YJ5EMzyimfc
 
 function Triage () {
     
@@ -29,7 +32,11 @@ function Triage () {
     const [patients, setPatients] = useState ([
         {id: 1, patientName: "Pickle", visitReason: "Difficulty breathing for past 24 hours."},
         {id: 2, patientName: "Mr. Ruffman", visitReason: "Laceration to right paw pad."},
-        {id: 3, patientName: "Tippy", visitReason: "Non weight bearing on hind end."}
+        {id: 3, patientName: "Tippy", visitReason: "Non weight bearing on hind end."},
+        {id: 4, patientName: "Tippy", visitReason: "Non weight bearing on hind end."},
+        {id: 5, patientName: "Tippy", visitReason: "Non weight bearing on hind end."},
+        {id: 6, patientName: "Tippy", visitReason: "Non weight bearing on hind end."},
+
     ])
 
     // This function handles saving of edited patient name and reason for visit
@@ -45,6 +52,20 @@ function Triage () {
         );
     };
 
+// Description: Splicing Arrays
+// Source: Array.prototype.splice(), Mozilla Developers
+// Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+
+    const handleDrag = (res) => {
+
+        if (!res.destination) return;
+        const modPatients = Array.from(patients);
+        const [changedPatient] = modPatients.splice(res.source.index, 1);
+        modPatients.splice(res.destination.index, 0, changedPatient);
+        setPatients(modPatients);
+
+    }
+
     return (
         <div className="Triage">
             <Navigation />
@@ -53,23 +74,43 @@ function Triage () {
                  <strong>Triage</strong>
                 </h1>            
             </header>
+            <DragDropContext onDragEnd={handleDrag}>
+                <Droppable droppableId="patient">
+                    {(provided) => (
+                        <div className="queue" {...provided.droppableProps}
+                        ref={provided.innerRef}>
+                        
+                        {patients.map((patient, index) => (
+                            <Draggable key = {patient.id} draggableId={String(patient.id)} index = {index}>
+                                {(provided) => (
+                                    <div ref={provided.innerRef}
+                                    {...provided.draggableProps}
+                                    {...provided.dragHandleProps}
+                                >
+                                  
+                                        <PatientBoxTriage
+                                        key={patient.id}
+                                        patientName={patient.patientName}
+                                        visitReason={patient.visitReason}
+                                        order = {index + 1}
+                                        onSave={(newPatientName, newVisitReason) => handleSave(patient.id, newPatientName, newVisitReason)}
+                                        />
+                                        </div>
+                                    )
+                                    }
+                            </Draggable>
+                        ))}
+                        {provided.placeholder}
+                        </div>
+                    )}
             {/* Description: Using map method to create list of patients in numbered order.
             Source: Rendering List document on React.dev
             Reference: https://react.dev/learn/rendering-lists, https://legacy.reactjs.org/docs/lists-and-keys.html */}
 
             {/* Iterating over patient list, creating PatientBoxTriage component for each */}
-            <div className='queue'>
-                {patients.map((patient, index) =>
-                    <PatientBoxTriage
-                    key={patient.id}
-                    patientName={patient.patientName}
-                    visitReason={patient.visitReason}
-                    order = {index + 1}
-                    onSave={(newPatientName, newVisitReason) => handleSave(patient.id, newPatientName, newVisitReason)}
-                    />
-                )
-                }
-            </div>
+          
+                </Droppable>
+            </DragDropContext>
         </div>
     );
 }
