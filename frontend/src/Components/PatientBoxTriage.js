@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import '../CSS/PatientBoxTriage.css';
 import pencil from '../images/pencil.png';
+import CountUpTimer from './CountUpTimer';
 
 // Description: Managing state using React
 // Source: Managing State document on React.dev
@@ -27,10 +28,13 @@ function PatientBoxTriage ({order, patientName, species, visitReason, ETA, onSav
 
     // Enables toggling between view and edit, holds the edited PAtient name and visit reason values
     const [editing, setEditing] = useState(false);
+    const [critical, setCritical] = useState(false);
+    const [timer, setTimer] = useState(false);
     const [editedPatientName, setEditedPatientName] = useState(patientName);
     const [editedSpecies, setEditedSpecies] = useState(species);
     const [editedVisitReason, setEditedVisitReason] = useState(visitReason);
     const [editedETA, setEditedETA] = useState(ETA);
+    const [hideETA, setHideETA] = useState(false);
 
     // Function that enables saved changes
     const handleChange = () => {
@@ -38,9 +42,29 @@ function PatientBoxTriage ({order, patientName, species, visitReason, ETA, onSav
         onSave(editedPatientName, editedSpecies, editedVisitReason, editedETA);
     };
 
+    const handleCritical = () => {
+        setCritical(!critical);
+        
+    };
 
+    const handleTimer = () => {
+        setTimer(!timer);
+        setHideETA(!hideETA);
+    };
+
+
+ 
     return (
-        <div className ="PatientBoxTriage">
+        
+        <div className={`PatientBoxTriage ${critical ? 'critical' : ''}`}>
+            <button onClick={handleCritical} className='button-critical'>
+                {critical ? 'Unmark Critical Patient' : 'Mark Critical Patient'}
+            </button>
+            <button onClick={handleTimer} className="here-button">
+                {timer ? 'Left Hospital': 'At Hospital'}
+            </button>
+            {timer && <CountUpTimer running={true}/>}
+
             {/*} Editing mode that enables editing of patient details{*/}
             {editing ? (
                 <div>
@@ -49,7 +73,7 @@ function PatientBoxTriage ({order, patientName, species, visitReason, ETA, onSav
                     </button>
                     <div className='form-group'>
                         <label><strong>Place in Queue: </strong></label>
-                        <label>{order}.</label>
+                        <label>{order}</label>
                     </div>
                     <div className='form-group'>
                         <label><strong>Patient Name: </strong></label>
@@ -87,9 +111,16 @@ function PatientBoxTriage ({order, patientName, species, visitReason, ETA, onSav
                     <div className='form-group'>
                         <strong>Reason for Visit: </strong><span>{visitReason}</span>
                     </div>
-                    <div className='form-group'>
+                    {hideETA ? (
+                        <div className='form-group'>
+                        </div>
+                    )
+                    :
+                    ( 
+                        <div className='form-group'>
                         <strong>ETA: </strong><span>{editedETA}</span>
-                    </div>
+                        </div>
+                    )}
                 </div>
             )}
         </div>

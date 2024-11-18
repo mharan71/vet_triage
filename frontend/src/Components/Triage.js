@@ -70,16 +70,18 @@ function Triage () {
         <div className="Triage">
             <Navigation />
             <header className= "Triage-header">
-                <h1>
-                 <strong>Triage</strong>
-                </h1>            
+                 <strong>Triage</strong>  
             </header>
             <DragDropContext onDragEnd={handleDrag}>
                 <Droppable droppableId="patient">
                     {(provided) => (
                         <div className="queue" {...provided.droppableProps}
                         ref={provided.innerRef}>
-                        
+                        {/* Description: Using map method to create list of patients in numbered order.
+                         Source: Rendering List document on React.dev
+                        Reference: https://react.dev/learn/rendering-lists, https://legacy.reactjs.org/docs/lists-and-keys.html */}
+
+                        {/* Iterating over patient list, creating PatientBoxTriage component for each */}
                         {patients.map((patient, index) => (
                             <Draggable key = {patient.id} draggableId={String(patient.id)} index = {index}>
                                 {(provided) => (
@@ -105,12 +107,6 @@ function Triage () {
                         {provided.placeholder}
                         </div>
                     )}
-            {/* Description: Using map method to create list of patients in numbered order.
-            Source: Rendering List document on React.dev
-            Reference: https://react.dev/learn/rendering-lists, https://legacy.reactjs.org/docs/lists-and-keys.html */}
-
-            {/* Iterating over patient list, creating PatientBoxTriage component for each */}
-          
                 </Droppable>
             </DragDropContext>
         </div>

@@ -1,0 +1,18 @@
+.timer {
+    position: relative;
+    margin: auto;
+    margin-bottom: 10px;
+    text-align: center;
+    color: black;
+    font-size: 1.1em;
+    background-color: #d0ddf9;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    border: solid #004AAD;
+    border-radius: 10px;
+    width: 58%;
+}
+
+.timer-cont {
+    justify-content: center;
+    margin-left: 85px;
+}

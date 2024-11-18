@@ -1,5 +1,3 @@
-
-
 .PatientBoxPatients {
     padding: 20px 30px;
     flex: 1;
@@ -117,6 +115,7 @@
 
 .save-button:hover {
     background-color: #004AAD;
+    color: white;
 }
 
 .expanded-box {

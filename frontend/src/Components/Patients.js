@@ -66,9 +66,7 @@ function Patients () {
         <div className="Patients">
             <Navigation />
             <header className="Owner-header">
-                <h1>
                     <strong>Owner</strong>
-                </h1>
             </header>
              {/* Description: Using map method to create list of patients in numbered order.
             Source: Rendering List document on React.dev
@@ -90,9 +88,7 @@ function Patients () {
             }
             </div>
             <header className= "Patient-header">
-                <h1>
-                 <strong>Patient</strong>
-                </h1>            
+                 <strong>Patient</strong>  
             </header>
 
             {/* Iterating over patients, creating PatientBoxPatients component for each */}
