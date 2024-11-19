@@ -1,6 +1,6 @@
 // backend.js file for handling data requests
 
-// Import express, cors, env, mysql2, express modules
+// Import express, cors, env, mysql2 modules
 
 const express = require('express');  
 const cors = require('cors');        
