@@ -3,11 +3,16 @@
   display: flex;
   color: #004AAD;
   align-items: center;
-  background-color:azure;
+  background-color:rgb(247, 242, 242);
+  border-radius: 10px;
+  border-top: 2px solid #a1caff;
+  border-bottom: 2px solid #a1caff;
   padding: 0 20px;
   width: 100%;
   box-sizing: border-box;
   justify-content: center;
+  /* background: linear-gradient(90deg, #e5e8eb, #8da9ce); */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .navigationTabs {
@@ -23,7 +28,7 @@
   position: absolute;
   left: 20px;
   max-height: 60px;
-  width: 120px;
+  width: auto;
   height: 95%;
   padding: 0;
   margin-right: 20px;
@@ -33,7 +38,7 @@
 .tabs {
   width: 120px;
   padding: 10px 20px;
-  border: solid #7190b9;
+  border: 2px solid #a1caff;
   border-bottom: none;
   border-radius: 15px 15px 0 0;
   text-align: center;
@@ -42,6 +47,7 @@
   color: rgb(255, 255, 255);
   background-color: #014f70;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .tabs:hover {

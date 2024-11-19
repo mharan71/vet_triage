@@ -64,6 +64,7 @@
     align-items: left;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     background-color: #f4f8fb;
+    transition: background-color 0.15s, color 0.15s;
 }
 
 .edit-button img {
@@ -87,6 +88,7 @@
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     background-color: #f4f8fb;
     text-align: center;
+    transition: background-color 0.15s, color 0.15s;
 }
 
 .save-button:hover {
