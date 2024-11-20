@@ -2,9 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import '../CSS/App.css';
 import Navigation from './Navigation';
-import PatientBoxTriage from './PatientBoxPatients';
 import OwnerBox from './OwnerBox';
 import PatientBoxPatients from './PatientBoxPatients';
+import PatientImageBox from "./PatientImageBox";
 
 // Description: Managing state using React
 // Source: Managing State document on React.dev
@@ -46,17 +46,17 @@ function Patients () {
     const [patients, setPatient] = useState ([
         {PID: 12545, patientName: "Pickle", DOB: "12/12/19", species: "Canine",sex: "Female", breed: "Husky", regularVet: "Dr. Phillips - Portland, OR", allergies: "No known Allergies",
             history: "Patient has no known history of dyspnea.  Owner states patient had run a few miles with her in elevated temperatures prior to bringing patient in for visit.",
-            meds: "No current medications.", VX: "Rabies: 10/08/24"}
+            meds: "No current medications.", VX: "Rabies: 10/08/24", imageURL: null}
     ])
 
     // This function handles saving of edited patient values
-    const handleSavePatient = (PID, newPatientName, newDOB, newSpecies, newSex, newBreed, newRegularVet, newAllergies, newHistory, newMeds, newVX) => {
+    const handleSavePatient = (PID, newPatientName, newDOB, newSpecies, newSex, newBreed, newRegularVet, newAllergies, newHistory, newMeds, newVX, newImageURL) => {
 
         // Using map to iterate over patients, locating patient by specified ID
         setPatient(patients.map(patient =>
             patient.PID === PID
             ? {...patient, patientName: newPatientName, DOB: newDOB, species: newSpecies, sex: newSex, breed: newBreed, regularVet: newRegularVet, allergies: newAllergies, history: newHistory,
-                meds: newMeds, VX: newVX}
+                meds: newMeds, VX: newVX, imageURL: newImageURL}
             : patient
         ) 
         );
@@ -65,16 +65,28 @@ function Patients () {
     return (
         <div className="Patients">
             <Navigation />
-            <header className="Owner-header">
+            {/* <header className="Owner-header">
                     <strong>Owner</strong>
-            </header>
+            </header> */}
              {/* Description: Using map method to create list of patients in numbered order.
             Source: Rendering List document on React.dev
             Reference: https://react.dev/learn/rendering-lists, https://legacy.reactjs.org/docs/lists-and-keys.html */}
+        <div className='patient-owner-container'>
+            
+            {patients.map((patient) =>
+                    <PatientImageBox
+                    key={patient.PID}
+                    imageURL={patient.imageURL}
+                    onImageSave={(newImageURL) => 
+                        handleSavePatient(patient.PID, newImageURL)}
+                    />
+                )
+                }
+         
 
             {/* Iterating over owners, creating OwnerBox component for each */}
-            <div className='owner'>
-                {owners.map((owner) =>
+            
+            {owners.map((owner) =>
                 <OwnerBox
                 key={owner.OID}
                 ownerName={owner.ownerName}
@@ -86,10 +98,11 @@ function Patients () {
                 />
             )
             }
-            </div>
-            <header className= "Patient-header">
+        </div>
+
+            {/* <header className= "Patient-header">
                  <strong>Patient</strong>  
-            </header>
+            </header> */}
 
             {/* Iterating over patients, creating PatientBoxPatients component for each */}
             <div className='patient'>
@@ -113,6 +126,7 @@ function Patients () {
                 }
             </div>
         </div>
+
     );
 }
 

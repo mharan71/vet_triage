@@ -1,0 +1,141 @@
+.PatientBoxImage {
+    padding: 20px 30px;
+    flex: 0 1 35%;
+    border: solid #004AAD;
+    border-radius: 10px;
+    min-width: 250px;
+    /* width: 40%;
+    max-width: 500px; */
+    text-align: left;
+    margin: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 1.1em;
+    line-height: 1.6;
+    background-color: #e4eef7;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+.image-container{
+    margin-left: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+    width: 320px;
+    height: 320px;
+    flex-shrink: 0;
+    border: solid #014f70;
+    border-radius: 10px;
+  }
+
+.delete-upload-container {
+    height: 50px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+  
+.PatientBoxImage h2 {
+    margin-bottom: 15px;
+}
+
+.patient-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: contain;
+    background-color: #f4f8fb;
+}
+
+
+.form-group {
+    margin-top: 10px; 
+}
+
+.no-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1.1em;
+    background-color: #e0e9f6;
+    /* border-radius: inherit;
+    box-sizing: border-box;
+    background-image: url('../images/paw.png');
+    object-fit: contain; */
+
+}
+
+.form-group input[type="file"] {
+    display: none;
+}
+
+.file-upload, .delete-button {
+    all: unset;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: center;
+    padding: 10px 20px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    align-items: center;
+    font: 1.1em;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    background-color: #f4f8fb;
+    font-size: inherit;
+    width: 200px;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.file-upload:hover, .delete-button:hover {
+    background-color: #004AAD;
+    color: white;
+
+}
+
+/* .delete-button {
+    margin-top: 10px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    align-items: center;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    background-color: #f4f8fb;
+    transition: background-color 0.15s, color 0.15s;
+    
+    width: auto;
+    text-align: center;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    align-items: center;
+    font: 1.1em;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    background-color: #f4f8fb;
+    transition: background-color 0.15s, color 0.15s;
+    
+} */
+
+
+.header-image {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.header-image h2 {
+    margin: 0;
+    flex: 1;
+}
+
