@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import '../CSS/PatientImageBox.css';
 
-function PatientImageBox ({imageURL, onImageSave}) {
+function PatientImageBox ({imageURL, onImageSave, patientName}) {
 
     // Enables toggling between view and edit, holds the edited Patient values
     const [currImage, setCurrImage] = useState(imageURL);
     const [hideUploadButton, setHideUploadButton] = useState(Boolean(imageURL));
+    const [showPatientName, setShowPatientName] = useState(Boolean(patientName))
     
 
     // Function that enables saved changes
@@ -17,6 +18,7 @@ function PatientImageBox ({imageURL, onImageSave}) {
         setCurrImage(newImageURL);
         onImageSave(newImageURL);
         setHideUploadButton(true);
+        setShowPatientName(true);
 
     };
 
@@ -24,19 +26,29 @@ function PatientImageBox ({imageURL, onImageSave}) {
         setCurrImage(null);
         onImageSave(null);
         setHideUploadButton(false);
+        setShowPatientName(false);
     }
 
     return (
         <div className="PatientBoxImage">
+            
             <div className="header-image">
-                <h2><strong>Patient Image</strong></h2>
-                <div className="image-container">
-                    {currImage ? (
-                    <img src={currImage} alt= "Patient" className="patient-image"/>
-                    ) 
-                    :
-                    ( 
-                    <div className="no-image">No Image Uploaded</div>
+            <h2><strong>Patient Image</strong></h2>
+                <div className="name-image-container">
+                    <div className="image-container">
+                        {currImage ? (
+                        <img src={currImage} alt= "Patient" className="patient-image"/>
+                        ) 
+                        :
+                        ( 
+                        <div className="no-image">No Image Uploaded</div>
+                    )}
+                    
+                    </div>
+                {showPatientName && currImage &&(
+                <div className="show-patient-name">
+                            {patientName}
+                </div>
                 )}
             </div>
             </div>
@@ -52,10 +64,13 @@ function PatientImageBox ({imageURL, onImageSave}) {
                 )}
                 </div>
                 {currImage && (
+
+                <div className="delete-container">
                     <button onClick={handleImageDelete} className= "delete-button">
                         Delete Image
                     </button>
-                )}
+                </div>     
+            )}
             </div>
         </div>
     );

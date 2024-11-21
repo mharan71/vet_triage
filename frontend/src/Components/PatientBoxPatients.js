@@ -59,7 +59,7 @@ function PatientBoxPatients ({patientName, DOB, species, breed, sex, regularVet,
                         <strong>Save</strong>
                     </button>
                     <div className='form-group'>
-                        <label><strong>Patient: </strong></label>
+                        <label><strong>Name: </strong></label>
                         <input type='text' value={editedPatientName} onChange={(event) => setEditedPatientName(event.target.value)}/>
                     </div>
                     <div className= 'form-group'>
@@ -120,7 +120,7 @@ function PatientBoxPatients ({patientName, DOB, species, breed, sex, regularVet,
                             <img src={pencil} alt='edit'/>
                         </button>
                         <div className= 'form-group'>
-                        <strong>Patient: </strong><span>{patientName}</span>
+                        <strong>Name: </strong><span>{patientName}</span>
                         </div>
                         <div className= 'form-group'>
                         <strong>Species: </strong><span>{species}</span> 

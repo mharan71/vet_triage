@@ -40,7 +40,7 @@ function OwnerBox ({ownerName, phone, address, email, onSave}) {
 
     return (
         <div className ="OwnerBox">
-            <h2><strong>Owner Information</strong></h2>
+            <h2><strong>Client Information</strong></h2>
 
             {/*} Editing mode that enables editing of owner details{*/}
             {editing ? (
@@ -49,7 +49,7 @@ function OwnerBox ({ownerName, phone, address, email, onSave}) {
                         <strong>Save</strong>
                     </button>
                     <div className='form-group'>
-                    <label><strong>Client Name: </strong></label> 
+                    <label><strong>Name: </strong></label> 
                     <input type= 'text' value={editedOwnerName} onChange={(event) => setEditedOwnerName(event.target.value)}/>
                     </div>
                     <div className='form-group'>
@@ -74,7 +74,7 @@ function OwnerBox ({ownerName, phone, address, email, onSave}) {
                             <img src={pencil} alt='edit'/>
                     </button>
                     <div className= 'form-group'>
-                    <strong>Client Name: </strong>  <span>{ownerName}</span>
+                    <strong>Name: </strong>  <span>{ownerName}</span>
                     </div>
                     <div className= 'form-group'>
                     <strong>Address: </strong> <span>{address}</span>

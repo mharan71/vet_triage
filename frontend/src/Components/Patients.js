@@ -50,13 +50,12 @@ function Patients () {
     ])
 
     // This function handles saving of edited patient values
-    const handleSavePatient = (PID, newPatientName, newDOB, newSpecies, newSex, newBreed, newRegularVet, newAllergies, newHistory, newMeds, newVX, newImageURL) => {
+    const handleSavePatient = (PID, alteredFields) => {
 
         // Using map to iterate over patients, locating patient by specified ID
         setPatient(patients.map(patient =>
             patient.PID === PID
-            ? {...patient, patientName: newPatientName, DOB: newDOB, species: newSpecies, sex: newSex, breed: newBreed, regularVet: newRegularVet, allergies: newAllergies, history: newHistory,
-                meds: newMeds, VX: newVX, imageURL: newImageURL}
+            ? {...patient, ...alteredFields}
             : patient
         ) 
         );
@@ -77,8 +76,9 @@ function Patients () {
                     <PatientImageBox
                     key={patient.PID}
                     imageURL={patient.imageURL}
+                    patientName={patient.patientName}
                     onImageSave={(newImageURL) => 
-                        handleSavePatient(patient.PID, newImageURL)}
+                        handleSavePatient(patient.PID, {imageURL: newImageURL})}
                     />
                 )
                 }
@@ -120,7 +120,8 @@ function Patients () {
                     meds = {patient.meds}
                     VX = {patient.VX}
                     onSave={(newPatientName, newDOB, newSpecies, newBreed, newSex, newRegularVet, newAllergies, newHistory, newMeds, newVX) => 
-                        handleSavePatient(patient.PID, newPatientName, newDOB, newSpecies, newBreed, newSex, newRegularVet, newAllergies, newHistory, newMeds, newVX)}
+                        handleSavePatient(patient.PID, {patientName: newPatientName, DOB: newDOB, species: newSpecies, breed: newBreed, sex: newSex, 
+                            regularvet: newRegularVet, allergies: newAllergies, history: newHistory, meds: newMeds, VX: newVX})}     
                     />
                 )
                 }
