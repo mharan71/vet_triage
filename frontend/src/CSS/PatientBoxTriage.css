@@ -52,46 +52,30 @@
     color: black;
 }
 
-.edit-button {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    align-items: left;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    background-color: #f4f8fb;
-    transition: background-color 0.15s, color 0.15s;
-}
+.edit-button-icon {
+    width: 25px;
+    height: 25px;
+} 
 
-.edit-button img {
-    align-items: center;
-    width: 20px;
-    height: 20px
-}
 
-.edit-button:hover {
-    background-color: #004AAD;
-    color: white;
-}
-
-.save-button {
+.save-edit-button {
     position: absolute;
     top: 15px;
     right: 20px;
     width: 47px;
     height: 40px;
     border-radius: 10px;
-    align-items: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     background-color: #f4f8fb;
-    text-align: center;
     transition: background-color 0.15s, color 0.15s;
 }
 
-.save-button:hover {
+.save-edit-button:hover {
     background-color: #004AAD;
+    color: white;
 }
 
 .PatientBoxTriage.critical {

@@ -2,9 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import '../CSS/App.css';
 import Navigation from './Navigation';
-import PatientBoxTriage from './PatientBoxPatients';
 import OwnerBox from './OwnerBox';
 import PatientBoxPatients from './PatientBoxPatients';
+import PatientImageBox from "./PatientImageBox";
 
 // Description: Managing state using React
 // Source: Managing State document on React.dev
@@ -26,16 +26,19 @@ function Patients () {
 
     // Initialize owner with owner ID, name, phone, address, and email values
     const [owners, setOwner] = useState ([
-        {OID: 23423, ownerName: "Erica Morris", phone: "253-222-2222", address: "1111 Stevens Pass, Orting, WA 98360", email: "e@oregonstate.edu"}
+        {OID: 23423, ownerName: "Erica Morris", altContact: "Sam Morris", phone: "253-222-2222", altPhone: "253-222-1111",
+            address: "1111 Stevens Pass, Orting, WA 98360", email: "e@oregonstate.edu", altEmail: "z@oregonstate.edu"}
     ])
 
      // This function handles saving of edited owner values
-    const handleSaveOwner = (OID, newOwnerName, newPhone, newAddress, newEmail) => {
+    const handleSaveOwner = (OID, newOwnerName, newAltContact, newPhone, newAltPhone, newAddress, newEmail, newAltEmail) => {
 
         // Using map to iterate over owners, locating patient by specified ID
         setOwner(owners.map(owner =>
             owner.OID === OID
-            ? {...owner, ownerName: newOwnerName, phone: newPhone, address: newAddress, email: newEmail}
+            ? {...owner, ownerName: newOwnerName, altContact: newAltContact, 
+                phone: newPhone, altPhone: newAltPhone, address: newAddress, email: newEmail,
+            altEmail: newAltEmail}
             : owner
         )
         );
@@ -46,17 +49,16 @@ function Patients () {
     const [patients, setPatient] = useState ([
         {PID: 12545, patientName: "Pickle", DOB: "12/12/19", species: "Canine",sex: "Female", breed: "Husky", regularVet: "Dr. Phillips - Portland, OR", allergies: "No known Allergies",
             history: "Patient has no known history of dyspnea.  Owner states patient had run a few miles with her in elevated temperatures prior to bringing patient in for visit.",
-            meds: "No current medications.", VX: "Rabies: 10/08/24"}
+            meds: "No current medications.", VX: "Rabies: 10/08/24", imageURL: null}
     ])
 
     // This function handles saving of edited patient values
-    const handleSavePatient = (PID, newPatientName, newDOB, newSpecies, newSex, newBreed, newRegularVet, newAllergies, newHistory, newMeds, newVX) => {
+    const handleSavePatient = (PID, alteredFields) => {
 
         // Using map to iterate over patients, locating patient by specified ID
         setPatient(patients.map(patient =>
             patient.PID === PID
-            ? {...patient, patientName: newPatientName, DOB: newDOB, species: newSpecies, sex: newSex, breed: newBreed, regularVet: newRegularVet, allergies: newAllergies, history: newHistory,
-                meds: newMeds, VX: newVX}
+            ? {...patient, ...alteredFields}
             : patient
         ) 
         );
@@ -65,31 +67,48 @@ function Patients () {
     return (
         <div className="Patients">
             <Navigation />
-            <header className="Owner-header">
+            {/* <header className="Owner-header">
                     <strong>Owner</strong>
-            </header>
+            </header> */}
              {/* Description: Using map method to create list of patients in numbered order.
             Source: Rendering List document on React.dev
             Reference: https://react.dev/learn/rendering-lists, https://legacy.reactjs.org/docs/lists-and-keys.html */}
+        <div className='patient-owner-container'>
+            
+            {patients.map((patient) =>
+                    <PatientImageBox
+                    key={patient.PID}
+                    imageURL={patient.imageURL}
+                    patientName={patient.patientName}
+                    onImageSave={(newImageURL) => 
+                        handleSavePatient(patient.PID, {imageURL: newImageURL})}
+                    />
+                )
+                }
+         
 
             {/* Iterating over owners, creating OwnerBox component for each */}
-            <div className='owner'>
-                {owners.map((owner) =>
+            
+            {owners.map((owner) =>
                 <OwnerBox
                 key={owner.OID}
                 ownerName={owner.ownerName}
+                altContact={owner.altContact}
                 phone={owner.phone}
+                altPhone={owner.altPhone}
                 address={owner.address}
                 email={owner.email}
-                onSave={(newOwnerName, newPhone, newAddress, newEmail) => 
-                    handleSaveOwner(owner.OID, newOwnerName, newPhone, newAddress, newEmail)}
+                altEmail={owner.altEmail}
+                onSave={(newOwnerName, newAltContact, newPhone, newAltPhone, newAddress, newEmail, newAltEmail) => 
+                    handleSaveOwner(owner.OID, newOwnerName, newAltContact, newPhone, newAltPhone, newAddress, newEmail, newAltEmail)}
                 />
             )
             }
-            </div>
-            <header className= "Patient-header">
+        </div>
+
+            {/* <header className= "Patient-header">
                  <strong>Patient</strong>  
-            </header>
+            </header> */}
 
             {/* Iterating over patients, creating PatientBoxPatients component for each */}
             <div className='patient'>
@@ -107,12 +126,14 @@ function Patients () {
                     meds = {patient.meds}
                     VX = {patient.VX}
                     onSave={(newPatientName, newDOB, newSpecies, newBreed, newSex, newRegularVet, newAllergies, newHistory, newMeds, newVX) => 
-                        handleSavePatient(patient.PID, newPatientName, newDOB, newSpecies, newBreed, newSex, newRegularVet, newAllergies, newHistory, newMeds, newVX)}
+                        handleSavePatient(patient.PID, {patientName: newPatientName, DOB: newDOB, species: newSpecies, breed: newBreed, sex: newSex, 
+                            regularvet: newRegularVet, allergies: newAllergies, history: newHistory, meds: newMeds, VX: newVX})}     
                     />
                 )
                 }
             </div>
         </div>
+
     );
 }
 

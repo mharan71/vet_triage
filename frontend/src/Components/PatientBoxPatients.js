@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import pencil from '../images/pencil.png';
+import {FaPencilAlt} from 'react-icons/fa';
 import '../CSS/PatientBoxPatient.css';
 
 // Description: Managing state using React
@@ -45,7 +45,8 @@ function PatientBoxPatients ({patientName, DOB, species, breed, sex, regularVet,
     const handleChange = (event) => {
         event.preventDefault();
         setEditing(false);
-        onSave(editedPatientName, editedDOB, editedSpecies, editedBreed, editedSex, editedRegularVet, editedAllergies, editedHistory, editedMeds, editedVX);
+        onSave(editedPatientName, editedDOB, editedSpecies, editedBreed, editedSex, 
+            editedRegularVet, editedAllergies, editedHistory, editedMeds, editedVX);
     };
 
 
@@ -55,11 +56,11 @@ function PatientBoxPatients ({patientName, DOB, species, breed, sex, regularVet,
             {/*} Editing mode that enables editing of patient details{*/}
             {editing ? (
                 <div>
-                    <button onClick={handleChange} className="save-button">
+                    <button onClick={handleChange} className="save-edit-button">
                         <strong>Save</strong>
                     </button>
                     <div className='form-group'>
-                        <label><strong>Patient: </strong></label>
+                        <label><strong>Name: </strong></label>
                         <input type='text' value={editedPatientName} onChange={(event) => setEditedPatientName(event.target.value)}/>
                     </div>
                     <div className= 'form-group'>
@@ -116,11 +117,11 @@ function PatientBoxPatients ({patientName, DOB, species, breed, sex, regularVet,
                 // Viewing mode that displays patient information, pencil icon displayed to enable editing.
                 <div className='view'>
                     <div className='details'>
-                        <button onClick={() => setEditing(true)} className="edit-button">
-                            <img src={pencil} alt='edit'/>
+                        <button onClick={() => setEditing(true)} className="save-edit-button">
+                            <FaPencilAlt className='edit-button-icon'/>
                         </button>
                         <div className= 'form-group'>
-                        <strong>Patient: </strong><span>{patientName}</span>
+                        <strong>Name: </strong><span>{patientName}</span>
                         </div>
                         <div className= 'form-group'>
                         <strong>Species: </strong><span>{species}</span> 

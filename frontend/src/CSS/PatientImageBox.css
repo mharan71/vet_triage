@@ -1,0 +1,166 @@
+.PatientBoxImage {
+    padding: 20px 30px;
+    flex: 1 1 35%;
+    border: solid #004AAD;
+    border-radius: 10px;
+    min-width: 250px;
+    text-align: left;
+    margin: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 1.1em;
+    line-height: 1.6;
+    background-color: #e4eef7;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 420px;
+  }
+
+.image-container{
+    margin-left: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+    width: 100%;
+    width: 320px;
+    height: 320px;
+    flex-shrink: 0;
+    border: solid #014f70;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+.delete-upload-container {
+    margin-top: auto;
+    height: 50px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+  
+.PatientBoxImage h2 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.patient-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #f4f8fb;
+}
+
+
+.form-group {
+    margin-top: 10px; 
+}
+
+.no-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1.1em;
+    text-align: center;
+    background-color: #e0e9f6;
+    background: repeating-linear-gradient(45deg, #e2f1ff, #c2dcfd 10%, #b3d4ff 10%, #c6defd 20%);
+}
+
+
+.form-group input[type="file"] {
+    display: none;
+}
+
+.file-upload {
+    all: unset;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: center;
+    padding: 10px 20px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    align-items: center;
+    font: 1.1em;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    background-color: #f4f8fb;
+    font-size: inherit;
+    width: 200px;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.delete-button {
+    all: unset;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: center;
+    padding: 10px 20px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    align-items: center;
+    font: 1.1em;
+    font-size: larger;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    background-color: #f4f8fb;
+    width: 200px;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+
+
+.file-upload:hover, .delete-button:hover {
+    background-color: #004AAD;
+    color: white;
+
+}
+
+.header-image {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.header-image h2 {
+    margin: 0;
+    flex: 1;
+}
+
+
+.show-patient-name {
+    font-size: 1.9em;
+    font-weight: bolder;
+    color: #041158;
+    text-align: center;
+    line-height: 1.2;
+    margin: 0;
+
+}
+
+.name-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    gap: 10px;
+}
+
+.delete-container {
+    margin-bottom: 100px;
+}
+
+/* .patient-image-header {
+    margin-bottom: 100px;
+} */
