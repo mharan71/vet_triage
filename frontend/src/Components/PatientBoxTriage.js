@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import '../CSS/PatientBoxTriage.css';
-import pencil from '../images/pencil.png';
+import {FaPencilAlt} from 'react-icons/fa';
 import CountUpTimer from './CountUpTimer';
 
 // Description: Managing state using React
@@ -68,7 +68,7 @@ function PatientBoxTriage ({order, patientName, species, visitReason, ETA, onSav
             {/*} Editing mode that enables editing of patient details{*/}
             {editing ? (
                 <div>
-                    <button onClick={handleChange} className="save-button">
+                    <button onClick={handleChange} className="save-edit-button">
                         <strong>Save</strong>
                     </button>
                     <div className='form-group'>
@@ -96,8 +96,8 @@ function PatientBoxTriage ({order, patientName, species, visitReason, ETA, onSav
             (
                 // Viewing mode that displays patient information, pencil icon displayed to enable editing.
                 <div>
-                    <button onClick={() => setEditing(true)} className="edit-button">
-                        <img src={pencil} alt='edit'/>
+                    <button onClick={() => setEditing(true)} className="save-edit-button">
+                        <FaPencilAlt className='edit-button-icon'/>
                     </button>
                     <div className='form-group'>
                         <strong>Place in Queue: </strong><span>{order}</span>

@@ -3,7 +3,7 @@ import '../CSS/PatientImageBox.css';
 
 function PatientImageBox ({imageURL, onImageSave, patientName}) {
 
-    // Enables toggling between view and edit, holds the edited Patient values
+    // 
     const [currImage, setCurrImage] = useState(imageURL);
     const [hideUploadButton, setHideUploadButton] = useState(Boolean(imageURL));
     const [showPatientName, setShowPatientName] = useState(Boolean(patientName))
@@ -31,19 +31,16 @@ function PatientImageBox ({imageURL, onImageSave, patientName}) {
 
     return (
         <div className="PatientBoxImage">
-            
             <div className="header-image">
-            <h2><strong>Patient Image</strong></h2>
+                <h2><strong>Patient Image</strong></h2>
                 <div className="name-image-container">
                     <div className="image-container">
                         {currImage ? (
                         <img src={currImage} alt= "Patient" className="patient-image"/>
                         ) 
-                        :
-                        ( 
+                        :( 
                         <div className="no-image">No Image Uploaded</div>
                     )}
-                    
                     </div>
                 {showPatientName && currImage &&(
                 <div className="show-patient-name">

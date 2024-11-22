@@ -1,6 +1,5 @@
 import React from 'react';
 import './CSS/App.css';
-import Navigation from './Components/Navigation';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Triage from './Components/Triage';
 import Patients from './Components/Patients';

@@ -113,7 +113,6 @@
     font-size: larger;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     background-color: #f4f8fb;
-    /* font-size: inherit; */
     width: 200px;
     transition: background-color 0.15s, color 0.15s;
 }
@@ -130,12 +129,14 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-bottom: 20px;
 }
 
 .header-image h2 {
     margin: 0;
     flex: 1;
 }
+
 
 .show-patient-name {
     font-size: 1.9em;
@@ -159,3 +160,7 @@
 .delete-container {
     margin-bottom: 100px;
 }
+
+/* .patient-image-header {
+    margin-bottom: 100px;
+} */

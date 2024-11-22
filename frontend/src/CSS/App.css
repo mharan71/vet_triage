@@ -1,3 +1,4 @@
+
 .App {
   padding: 10px 20px;
   flex: 1;
@@ -16,12 +17,7 @@
   text-align: center;
 }
 
-.Owner-header {
-  font-size: 3em;
-  text-align: center;
-}
-
-.Patient-header {
+.Owner-header, .Patient-header {
   font-size: 3em;
   text-align: center;
 }
