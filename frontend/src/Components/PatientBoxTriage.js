@@ -24,7 +24,7 @@ import CountUpTimer from './CountUpTimer';
 
 // PatientBoxTriage component, with order, Patient Name, Visit Reason, and onSave function arguments
 
-function PatientBoxTriage ({order, patientName, species, visitReason, ETA, onSave}) {
+function PatientBoxTriage ({order, patientName, species, visitReason, ETA, location, onSave}) {
 
     // Enables toggling between view and edit, holds the edited PAtient name and visit reason values
     const [editing, setEditing] = useState(false);
@@ -34,12 +34,14 @@ function PatientBoxTriage ({order, patientName, species, visitReason, ETA, onSav
     const [editedSpecies, setEditedSpecies] = useState(species);
     const [editedVisitReason, setEditedVisitReason] = useState(visitReason);
     const [editedETA, setEditedETA] = useState(ETA);
+    const [editedLocation, setEditedLocation] = useState(location);
     const [hideETA, setHideETA] = useState(false);
+    const [showLocation, setShowLocation] = useState(true);
 
     // Function that enables saved changes
     const handleChange = () => {
         setEditing(false);
-        onSave(editedPatientName, editedSpecies, editedVisitReason, editedETA);
+        onSave(editedPatientName, editedSpecies, editedVisitReason, editedETA, editedLocation);
     };
 
     const handleCritical = () => {
@@ -50,6 +52,7 @@ function PatientBoxTriage ({order, patientName, species, visitReason, ETA, onSav
     const handleTimer = () => {
         setTimer(!timer);
         setHideETA(!hideETA);
+        setShowLocation(!showLocation);
     };
 
 
@@ -58,7 +61,7 @@ function PatientBoxTriage ({order, patientName, species, visitReason, ETA, onSav
         
         <div className={`PatientBoxTriage ${critical ? 'critical' : ''}`}>
             <button onClick={handleCritical} className='button-critical'>
-                {critical ? 'Unmark Critical Patient' : 'Mark Critical Patient'}
+                {critical ? 'Unmark Patient Critical' : 'Mark Patient Critical'}
             </button>
             <button onClick={handleTimer} className="here-button">
                 {timer ? 'Left Hospital': 'At Hospital'}
@@ -87,10 +90,18 @@ function PatientBoxTriage ({order, patientName, species, visitReason, ETA, onSav
                         <label><strong>Reason for Visit: </strong></label>
                         <input type='text' value={editedVisitReason} onChange={(event) => setEditedVisitReason(event.target.value)}/>
                     </div>
-                    <div className='form-group'>
-                        <label><strong>ETA: </strong></label>
-                        <input type='text' value={editedETA} onChange={(event) => setEditedETA(event.target.value)}/>
-                    </div>
+                    {!hideETA && (
+                        <div className='form-group'>
+                            <label><strong>ETA: </strong></label>
+                            <input type='text' value={editedETA} onChange={(event) => setEditedETA(event.target.value)}/>
+                        </div>
+                    )}
+                    {!showLocation && (
+                        <div className='form-group'>
+                            <label><strong>Location: </strong></label>
+                            <input type='text' value={editedLocation} onChange={(event) => setEditedLocation(event.target.value)}/>
+                        </div>
+                    )}
                 </div>
             ) : 
             (
@@ -111,14 +122,14 @@ function PatientBoxTriage ({order, patientName, species, visitReason, ETA, onSav
                     <div className='form-group'>
                         <strong>Reason for Visit: </strong><span>{visitReason}</span>
                     </div>
-                    {hideETA ? (
+                    {!hideETA && (
                         <div className='form-group'>
+                            <strong>ETA: </strong><span>{editedETA}</span>
                         </div>
-                    )
-                    :
-                    ( 
+                    )}
+                    {!showLocation && (
                         <div className='form-group'>
-                        <strong>ETA: </strong><span>{editedETA}</span>
+                            <strong>Location: </strong><span>{editedLocation}</span>
                         </div>
                     )}
                 </div>

@@ -5,8 +5,10 @@
   align-items: center;
   background-color:rgb(247, 242, 242);
   border-radius: 10px;
-  border-top: 2px solid #a1caff;
-  border-bottom: 2px solid #a1caff;
+  border: 1px solid #a1caff;
+  border-top: none;
+  /* border-top: 2px solid #a1caff; */
+  border-bottom: 4px solid #a1caff;
   padding: 0 20px;
   width: 100%;
   box-sizing: border-box;
