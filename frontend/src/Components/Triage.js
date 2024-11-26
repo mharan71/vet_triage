@@ -30,22 +30,22 @@ function Triage () {
     // Initialize patients; each comprising of ID, Name, and Reason for visit.
 
     const [patients, setPatients] = useState ([
-        {id: 1, patientName: "Pickle", species: "Canine", visitReason: "Difficulty breathing for past 24 hours.", ETA: "10:00 AM", location: "Lobby"},
-        {id: 2, patientName: "Mr. Ruffman", species: "Canine", visitReason: "Laceration to right paw pad.", ETA: "10:20 AM"},
-        {id: 3, patientName: "Tippy", species: "Feline", visitReason: "Non weight bearing on hind end.", ETA: "10:30 AM"},
-        {id: 4, patientName: "Panda", species: "Canine", visitReason: "Consistent itching resulting in abrasions.", ETA: "10:50 AM"},
-        {id: 5, patientName: "Bandit", species: "Feline", visitReason: "Ran out of diabetes medication.", ETA: "11:15 AM"},
-        {id: 6, patientName: "Rocky", species: "Feline", visitReason: "Ingested a large quantity of salmon.", ETA: "11:45 AM"},
+        {patientID: 1, patientName: "Pickle", species: "Canine", visitReason: "Difficulty breathing for past 24 hours.", ETA: "10:00 AM", location: "Lobby"},
+        {patientID: 2, patientName: "Mr. Ruffman", species: "Canine", visitReason: "Laceration to right paw pad.", ETA: "10:20 AM"},
+        {patientID: 3, patientName: "Tippy", species: "Feline", visitReason: "Non weight bearing on hind end.", ETA: "10:30 AM"},
+        {patientID: 4, patientName: "Panda", species: "Canine", visitReason: "Consistent itching resulting in abrasions.", ETA: "10:50 AM"},
+        {patientID: 5, patientName: "Bandit", species: "Feline", visitReason: "Ran out of diabetes medication.", ETA: "11:15 AM"},
+        {patientID: 6, patientName: "Rocky", species: "Feline", visitReason: "Ingested a large quantity of salmon.", ETA: "11:45 AM"},
 
     ])
 
     // This function handles saving of edited patient name and reason for visit
 
-    const handleSave = (id, newPatientName, newSpecies, newVisitReason, newETA, newLocation) => {
+    const handleSave = (patientID, newPatientName, newSpecies, newVisitReason, newETA, newLocation) => {
 
         // Using map to iterate over patients, locating patient by specified ID
         setPatients(patients.map(patient =>
-            patient.id === id
+            patient.patientID === patientID
             ? {...patient, patientName: newPatientName, species: newSpecies, visitReason: newVisitReason, ETA: newETA, location: newLocation}
             : patient
         ) 
@@ -83,7 +83,7 @@ function Triage () {
 
                         {/* Iterating over patient list, creating PatientBoxTriage component for each */}
                         {patients.map((patient, index) => (
-                            <Draggable key = {patient.id} draggableId={String(patient.id)} index = {index}>
+                            <Draggable key = {patient.patientID} draggableId={String(patient.patientID)} index = {index}>
                                 {(provided) => (
                                     <div ref={provided.innerRef}
                                     {...provided.draggableProps}
@@ -91,14 +91,14 @@ function Triage () {
                                 >
                                   
                                         <PatientBoxTriage
-                                        key={patient.id}
+                                        key={patient.patientID}
                                         patientName={patient.patientName}
                                         species={patient.species}
                                         visitReason={patient.visitReason}
                                         ETA={patient.ETA}
                                         location={patient.location}
                                         order = {index + 1}
-                                        onSave={(newPatientName, newSpecies, newVisitReason, newETA, newLocation) => handleSave(patient.id, newPatientName, newSpecies, newVisitReason, newETA, newLocation)}
+                                        onSave={(newPatientName, newSpecies, newVisitReason, newETA, newLocation) => handleSave(patient.patientID, newPatientName, newSpecies, newVisitReason, newETA, newLocation)}
                                         />
                                         </div>
                                     )

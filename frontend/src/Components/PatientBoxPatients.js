@@ -23,7 +23,7 @@ import '../CSS/PatientBoxPatient.css';
 // PatientBoxPatients component, with patient name, date of birth, species, breed, sex, regular veterinarian, allergies, history,
 // medications, vaccinations, and onSave function arguments
 
-function PatientBoxPatients ({patientName, DOB, species, breed, sex, regularVet, allergies, history, meds, VX, onSave}) {
+function PatientBoxPatients ({patientName, DOB, species, breed, sex, regularVet, allergies, history, meds, vaccines, onSave}) {
 
     // Enables toggling between view and edit, holds the edited Patient values
     const [editing, setEditing] = useState(false);
@@ -36,7 +36,7 @@ function PatientBoxPatients ({patientName, DOB, species, breed, sex, regularVet,
     const [editedAllergies, setEditedAllergies] = useState(allergies);
     const [editedHistory, setEditedHistory] = useState(history);
     const [editedMeds, setEditedMeds] = useState(meds);
-    const [editedVX, setEditedVX] = useState(VX);
+    const [editedVaccines, setEditedVaccines] = useState(vaccines);
 
 
     const sexOptions = ["Male Neutered", "Male", "Female Spayed", "Female"]
@@ -46,7 +46,7 @@ function PatientBoxPatients ({patientName, DOB, species, breed, sex, regularVet,
         event.preventDefault();
         setEditing(false);
         onSave(editedPatientName, editedDOB, editedSpecies, editedBreed, editedSex, 
-            editedRegularVet, editedAllergies, editedHistory, editedMeds, editedVX);
+            editedRegularVet, editedAllergies, editedHistory, editedMeds, editedVaccines);
     };
 
 
@@ -102,7 +102,7 @@ function PatientBoxPatients ({patientName, DOB, species, breed, sex, regularVet,
                     </div>
                     <div className= 'form-group'>
                         <label><strong>Vaccinations: </strong></label>
-                        <input type='text' value={editedVX} onChange={(event) => setEditedVX(event.target.value)}/>
+                        <input type='text' value={editedVaccines} onChange={(event) => setEditedVaccines(event.target.value)}/>
                     </div>
                     <div className= 'form-group'>
                         <label><strong>Medical History: </strong></label>
@@ -145,7 +145,7 @@ function PatientBoxPatients ({patientName, DOB, species, breed, sex, regularVet,
                         <strong>Medications: </strong><span> {meds} </span>
                         </div>
                         <div className= 'form-group'>
-                        <strong>Vaccinations: </strong><span> {VX}</span>
+                        <strong>Vaccinations: </strong><span> {vaccines}</span>
                         </div>
                         <div className= 'form-group'>
                         <strong>History: </strong><span> {history} </span>

@@ -26,16 +26,16 @@ function Patients () {
 
     // Initialize owner with owner ID, name, phone, address, and email values
     const [owners, setOwner] = useState ([
-        {OID: 23423, ownerName: "Erica Morris", altContact: "Sam Morris", phone: "253-222-2222", altPhone: "253-222-1111",
+        {clientID: 23423, ownerName: "Erica Morris", altContact: "Sam Morris", phone: "253-222-2222", altPhone: "253-222-1111",
             address: "1111 Stevens Pass, Orting, WA 98360", email: "e@oregonstate.edu", altEmail: "z@oregonstate.edu"}
     ])
 
      // This function handles saving of edited owner values
-    const handleSaveOwner = (OID, newOwnerName, newAltContact, newPhone, newAltPhone, newAddress, newEmail, newAltEmail) => {
+    const handleSaveOwner = (clientID, newOwnerName, newAltContact, newPhone, newAltPhone, newAddress, newEmail, newAltEmail) => {
 
         // Using map to iterate over owners, locating patient by specified ID
         setOwner(owners.map(owner =>
-            owner.OID === OID
+            owner.clientID === clientID
             ? {...owner, ownerName: newOwnerName, altContact: newAltContact, 
                 phone: newPhone, altPhone: newAltPhone, address: newAddress, email: newEmail,
             altEmail: newAltEmail}
@@ -49,7 +49,7 @@ function Patients () {
     const [patients, setPatient] = useState ([
         {PID: 12545, patientName: "Pickle", DOB: "12/12/19", species: "Canine",sex: "Female", breed: "Husky", regularVet: "Dr. Phillips - Portland, OR", allergies: "No known Allergies",
             history: "Patient has no known history of dyspnea.  Owner states patient had run a few miles with her in elevated temperatures prior to bringing patient in for visit.",
-            meds: "No current medications.", VX: "Rabies: 10/08/24", imageURL: null}
+            meds: "No current medications.", vaccines: "Rabies: 10/08/24", imageURL: null}
     ])
 
     // This function handles saving of edited patient values
@@ -91,7 +91,7 @@ function Patients () {
             
             {owners.map((owner) =>
                 <OwnerBox
-                key={owner.OID}
+                key={owner.clientID}
                 ownerName={owner.ownerName}
                 altContact={owner.altContact}
                 phone={owner.phone}
@@ -100,7 +100,7 @@ function Patients () {
                 email={owner.email}
                 altEmail={owner.altEmail}
                 onSave={(newOwnerName, newAltContact, newPhone, newAltPhone, newAddress, newEmail, newAltEmail) => 
-                    handleSaveOwner(owner.OID, newOwnerName, newAltContact, newPhone, newAltPhone, newAddress, newEmail, newAltEmail)}
+                    handleSaveOwner(owner.clientID, newOwnerName, newAltContact, newPhone, newAltPhone, newAddress, newEmail, newAltEmail)}
                 />
             )
             }
@@ -124,10 +124,10 @@ function Patients () {
                     allergies= {patient.allergies}
                     history = {patient.history}
                     meds = {patient.meds}
-                    VX = {patient.VX}
-                    onSave={(newPatientName, newDOB, newSpecies, newBreed, newSex, newRegularVet, newAllergies, newHistory, newMeds, newVX) => 
+                    vaccines = {patient.vaccines}
+                    onSave={(newPatientName, newDOB, newSpecies, newBreed, newSex, newRegularVet, newAllergies, newHistory, newMeds, newvaccines) => 
                         handleSavePatient(patient.PID, {patientName: newPatientName, DOB: newDOB, species: newSpecies, breed: newBreed, sex: newSex, 
-                            regularvet: newRegularVet, allergies: newAllergies, history: newHistory, meds: newMeds, VX: newVX})}     
+                            regularvet: newRegularVet, allergies: newAllergies, history: newHistory, meds: newMeds, vaccines: newvaccines})}     
                     />
                 )
                 }
