@@ -20,6 +20,9 @@ import CountUpTimer from './CountUpTimer';
 // Source: The Web Developer Bootcamp 2024, Colt Steele
 // Reference: https://www.udemy.com/course/the-web-developer-bootcamp/?couponCode=NVD20PMUS
 
+// Description: React Icons
+// Source: react-icons
+// https://react-icons.github.io/react-icons/search/#q=download
 
 
 // PatientBoxTriage component, with order, Patient Name, Visit Reason, and onSave function arguments
@@ -44,11 +47,13 @@ function PatientBoxTriage ({order, patientName, species, visitReason, ETA, locat
         onSave(editedPatientName, editedSpecies, editedVisitReason, editedETA, editedLocation);
     };
 
+    // Function that handles setting patient to critical
     const handleCritical = () => {
         setCritical(!critical);
         
     };
 
+    // Function that handles timer state, hides/shows ETA, and hide/shows location of patient
     const handleTimer = () => {
         setTimer(!timer);
         setHideETA(!hideETA);
@@ -56,7 +61,6 @@ function PatientBoxTriage ({order, patientName, species, visitReason, ETA, locat
     };
 
 
- 
     return (
         
         <div className={`PatientBoxTriage ${critical ? 'critical' : ''}`}>
@@ -88,7 +92,7 @@ function PatientBoxTriage ({order, patientName, species, visitReason, ETA, locat
                     </div>
                     <div className='form-group'>
                         <label><strong>Reason for Visit: </strong></label>
-                        <input type='text' value={editedVisitReason} onChange={(event) => setEditedVisitReason(event.target.value)}/>
+                        <textarea type='text' value={editedVisitReason} className='expanded-box' onChange={(event) => setEditedVisitReason(event.target.value)}/>
                     </div>
                     {!hideETA && (
                         <div className='form-group'>

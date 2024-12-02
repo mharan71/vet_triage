@@ -25,7 +25,6 @@
     display: inline-block;
     width: 200px;
     color: #1f1f1f
-    
 }
 
 .form-group {
@@ -121,4 +120,18 @@
     background-color: #004AAD;
     color: white;
     font: 1.2em;
+}
+
+
+.expanded-box {
+    /* font-family: "Segoe UI"; */
+    width: 100%;
+    resize: vertical;
+    flex: 1;
+    padding: 6px;
+    color: black;
+    font-size: 1.2em;
+    border-radius: 5px;
+    border: 1px solid #004AAD;
+
 }
