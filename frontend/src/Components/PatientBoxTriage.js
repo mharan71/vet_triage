@@ -27,7 +27,7 @@ import CountUpTimer from './CountUpTimer';
 
 // PatientBoxTriage component, with order, Patient Name, Visit Reason, and onSave function arguments
 
-function PatientBoxTriage ({order, patientName, species, visitReason, ETA, location, onSave}) {
+function PatientBoxTriage ({order, patientName, species, visitReason, ETA, location, onSave, onDelete}) {
 
     // Enables toggling between view and edit, holds the edited PAtient name and visit reason values
     const [editing, setEditing] = useState(false);
@@ -60,7 +60,6 @@ function PatientBoxTriage ({order, patientName, species, visitReason, ETA, locat
         setShowLocation(!showLocation);
     };
 
-
     return (
         
         <div className={`PatientBoxTriage ${critical ? 'critical' : ''}`}>
@@ -71,6 +70,11 @@ function PatientBoxTriage ({order, patientName, species, visitReason, ETA, locat
                 {timer ? 'Left Hospital': 'At Hospital'}
             </button>
             {timer && <CountUpTimer running={true}/>}
+            <div className='delete-button-div'>
+            <button onClick={onDelete} className="delete-button">
+                Delete
+            </button>
+            </div>
 
             {/*} Editing mode that enables editing of patient details{*/}
             {editing ? (

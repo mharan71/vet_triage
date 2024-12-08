@@ -57,6 +57,7 @@
 } 
 
 
+
 .save-edit-button {
     position: absolute;
     top: 15px;
@@ -72,10 +73,28 @@
     transition: background-color 0.15s, color 0.15s;
 }
 
-.save-edit-button:hover {
+.delete-button-div {
+    position: absolute;
+    font-size: small;
+    top: 175px;
+    right: 44px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    background-color: #f4f8fb;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+
+.save-edit-button:hover, .delete-button:hover {
     background-color: #004AAD;
     color: white;
 }
+
 
 .PatientBoxTriage.critical {
     background-color: rgb(247, 138, 138);

@@ -28,6 +28,62 @@
   background: linear-gradient(90deg, rgb(255, 254, 254), rgb(242, 246, 252));
 }
 
+.triage-form {  position: relative;
+  padding: 20px 150px 20px 30px;
+  flex: 1;
+  border: solid #004AAD;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 1000px;
+  text-align: left;
+  margin: 10px auto;
+  text-decoration: none;
+  color: black;
+  font-size: 1.1em;
+  line-height: 1.6;
+  background-color: #e4eef7;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.form-group strong {
+  display: inline-block;
+  width: 200px;
+  color: #1f1f1f
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: black;
+  font-size: 1.1em;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.form-group input {
+  flex: 1;
+  padding: 6px;
+  color: black;
+  font-size: 1.1em;
+  border-radius: 5px;
+  border: 1px solid #004AAD;
+}
+
+.expanded-box {
+  /* font-family: "Segoe UI"; */
+  width: 100%;
+  resize: vertical;
+  flex: 1;
+  padding: 6px;
+  color: black;
+  font-size: 1.2em;
+  border-radius: 5px;
+  border: 1px solid #004AAD;
+}
+
+
 .Owner-header, .Patient-header {
   font-size: 3em;
   text-align: center;
@@ -41,5 +97,40 @@
   margin: 20px;
   gap: 20px;
   overflow-x: auto
-  
+}
+
+.show-form-button {
+    font-size: larger;
+    width: 500px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    background-color: #f4f8fb;
+    transition: background-color 0.15s, color 0.15s;
+    box-sizing: border-box;
+    border: 1px solid #004AAD;
+    border-bottom: 2px solid #004AAD;
+}
+
+.add-patient-button {
+  position: relative;
+  right: 20px;
+  font-size: larger;
+  border-radius: 10px;
+  align-items: left;
+  box-shadow: 0 6px 10px rgba(132, 104, 104, 0.15);
+  background-color: #f4f8fb;
+  text-align: center;
+}
+
+.add-patient-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.show-form-button:hover, .add-patient-button:hover {
+  background-color: #004AAD;
+  color: white;
+  font: 1.2em;
 }
