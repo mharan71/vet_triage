@@ -1,5 +1,9 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
-function Search()
+function Search() {
+	
+}
+
+export default Search;

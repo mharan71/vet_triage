@@ -1,117 +1,117 @@
 .PatientBoxPatients {
-    padding: 20px 30px;
-    flex: 1;
-    border: solid #004AAD;
-    border-radius: 10px;
-    width: 94%;
-    position: relative;
-    text-align: left;
-    margin: 10px auto;
-    text-decoration: none;
-    color: black;
-    font-size: 1.1em;
-    line-height: 1.6;
-    background-color: #e4eef7;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+	padding: 20px 30px;
+	flex: 1;
+	border: solid #004AAD;
+	border-radius: 10px;
+	width: 94%;
+	position: relative;
+	text-align: left;
+	margin: 10px auto;
+	text-decoration: none;
+	color: black;
+	font-size: 1.1em;
+	line-height: 1.6;
+	background-color: #e4eef7;
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   }
   
 .PatientBoxPatients p {
-    margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 .view {
-    display: flex;
-    align-items: flex-start;
+	display: flex;
+	align-items: flex-start;
 }
 
 .details {
-    flex: 1;
+	flex: 1;
 }
 
 .form-group strong {
-    display: inline-block;
-    width: 200px;
-    color: #1f1f1f
-    
+	display: inline-block;
+	width: 200px;
+	color: #1f1f1f
+	
 }
 
 .form-group {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    color: black;
-    font-size: 1.1em;
-    position: relative;
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	color: black;
+	font-size: 1.1em;
+	position: relative;
 }
 
 .form-group input {
-    flex: 1;
-    padding: 6px;
-    color: black;
-    font-size: 1.1em;
-    border-radius: 5px;
-    border: 1px solid #004AAD;
+	flex: 1;
+	padding: 6px;
+	color: black;
+	font-size: 1.1em;
+	border-radius: 5px;
+	border: 1px solid #004AAD;
 }
 
 .form-group span {
-    flex: 1;
-    color: black;
+	flex: 1;
+	color: black;
 }
 
 .form-group select {
-    border-radius: 7px;
-    width: 100%;
-    padding: 7px;
-    font-size: 1em;
-    border-radius: 8px;
-    border-color: black;
-    appearance: none;
-    background-image: url('../images/downArrow.png');
-    background-position: right 10px top 50%;
-    background-repeat: no-repeat;
-    background-size: 50px 50px;
-    
+	border-radius: 7px;
+	width: 100%;
+	padding: 7px;
+	font-size: 1em;
+	border-radius: 8px;
+	border-color: black;
+	appearance: none;
+	background-image: url('../images/downArrow.png');
+	background-position: right 10px top 50%;
+	background-repeat: no-repeat;
+	background-size: 50px 50px;
+	
 }
 
 .form-group select:focus {
-    border-color: #004AAD;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+	border-color: #004AAD;
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 
 .edit-icon {
-    width: 30px;
-    height: 30px;
+	width: 30px;
+	height: 30px;
 }
 
 
 .save-edit-button {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    width: 47px;
-    height: 40px;
-    border-radius: 10px;
-    align-items: left;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    background-color: #f4f8fb;
-    text-align: center;
-    transition: background-color 0.15s, color 0.15s;
+	position: absolute;
+	top: 15px;
+	right: 20px;
+	width: 47px;
+	height: 40px;
+	border-radius: 10px;
+	align-items: left;
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+	background-color: #f4f8fb;
+	text-align: center;
+	transition: background-color 0.15s, color 0.15s;
 }
 
 .save-edit-button:hover {
-    background-color: #004AAD;
-    color: white;
+	background-color: #004AAD;
+	color: white;
 }
 
 .expanded-box {
-    font-family: "Segoe UI";
-    width: 100%;
-    resize: vertical;
-    flex: 1;
-    padding: 6px;
-    color: black;
-    font-size: 1.2em;
-    border-radius: 5px;
-    border: 1px solid #004AAD;
+	font-family: "Segoe UI";
+	width: 100%;
+	resize: vertical;
+	flex: 1;
+	padding: 6px;
+	color: black;
+	font-size: 1.2em;
+	border-radius: 5px;
+	border: 1px solid #004AAD;
 
 }

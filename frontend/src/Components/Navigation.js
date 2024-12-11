@@ -10,18 +10,17 @@ import icon from '../images/VetTrackLogo.png';
 // Navigation component, displays links to triage.js and patients.js pages
 
 function Navigation () {
-    return (
-        <nav className='navigation'>
-            <Link to= "/">
-                <img src={icon} alt='Vet Track' className='navigationLogo' />
-            </Link>
-            <div className='navigationTabs'>
-            <Link to="/" className='tabs'>Triage</Link>
-            <Link to="/patients" className='tabs'>Patients</Link>
-            </div>
-        </nav> 
-    )
+	return (
+		<nav className='navigation'>
+			<Link to= "/">
+				<img src={icon} alt='Vet Track' className='navigationLogo' />
+			</Link>
+			<div className='navigationTabs'>
+			<Link to="/" className='tabs'>Triage</Link>
+			<Link to="/patients" className='tabs'>Patients</Link>
+			</div>
+		</nav> 
+	)
 }
-
 
 export default Navigation;

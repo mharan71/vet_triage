@@ -1,136 +1,229 @@
-
 .App {
-  padding: 10px 20px;
-  flex: 1;
-  /* border: solid #004AAD;
-  border-radius: 5px; */
-  text-align: center;
-  margin: 0 5px;
-  text-decoration: none;
-  color: rgb(15, 29, 119);
-  background-color: rgb(214, 212, 212);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	padding: 10px 20px;
+	flex: 1;
+	/* border: solid #004AAD;
+	border-radius: 5px; */
+	text-align: center;
+	margin: 0 5px;
+	text-decoration: none;
+	color: #0F1D77;
+	background-color: #D6D4D4;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	min-height: 100vh;
+}
+
+.Patients {
+	padding-bottom: 80px;
+}
+
+.Patients strong {
+	display: block;
+	margin-top: 10px;
 }
 
 .Triage-header {
-  font-size: 4em;
-  text-align: center;
-  background-color: rgb(255, 254, 254);
-  border: 1px solid linear-gradient(90deg,#2b62ac, #004AAD);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  width: 90%;
-  max-width: 1000px;
-  margin: 10px auto;
-  box-sizing: border-box;
-  border-bottom: 4px solid #004AAD;
-  padding-bottom: 10px;
-  background: linear-gradient(90deg, rgb(255, 254, 254), rgb(242, 246, 252));
+	font-size: 4em;
+	text-align: center;
+	background-color: #FFFEFE;
+	border: 1px solid linear-gradient(90deg,#2b62ac, #004AAD);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	width: 90%;
+	max-width: 1000px;
+	margin: 10px auto;
+	box-sizing: border-box;
+	border-bottom: 4px solid #004AAD;
+	padding-bottom: 10px;
+	background: linear-gradient(90deg, #FFFEFE, #F2F6FC);
 }
 
 .triage-form {  position: relative;
-  padding: 20px 150px 20px 30px;
-  flex: 1;
-  border: solid #004AAD;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 1000px;
-  text-align: left;
-  margin: 10px auto;
-  text-decoration: none;
-  color: black;
-  font-size: 1.1em;
-  line-height: 1.6;
-  background-color: #e4eef7;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-  box-sizing: border-box;
+	padding: 20px 150px 20px 30px;
+	flex: 1;
+	border: solid #004AAD;
+	border-radius: 10px;
+	width: 90%;
+	max-width: 1000px;
+	text-align: left;
+	margin: 10px auto;
+	text-decoration: none;
+	color: black;
+	font-size: 1.1em;
+	line-height: 1.6;
+	background-color: #e4eef7;
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+	box-sizing: border-box;
 }
 
 .form-group strong {
-  display: inline-block;
-  width: 200px;
-  color: #1f1f1f
+	display: inline-block;
+	width: 200px;
+	color: #1f1f1f
 }
 
 .form-group {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  color: black;
-  font-size: 1.1em;
-  flex-wrap: nowrap;
-  overflow: hidden;
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	color: black;
+	font-size: 1.1em;
+	flex-wrap: nowrap;
+	overflow: hidden;
 }
 
 .form-group input {
-  flex: 1;
-  padding: 6px;
-  color: black;
-  font-size: 1.1em;
-  border-radius: 5px;
-  border: 1px solid #004AAD;
+	flex: 1;
+	padding: 6px;
+	color: black;
+	font-size: 1.1em;
+	border-radius: 5px;
+	border: 1px solid #004AAD;
 }
 
 .expanded-box {
-  /* font-family: "Segoe UI"; */
-  width: 100%;
-  resize: vertical;
-  flex: 1;
-  padding: 6px;
-  color: black;
-  font-size: 1.2em;
-  border-radius: 5px;
-  border: 1px solid #004AAD;
+	font-family: "Segoe UI";
+	width: 100%;
+	resize: vertical;
+	flex: 1;
+	padding: 6px;
+	color: black;
+	font-size: 1.2em;
+	border-radius: 5px;
+	border: 1px solid #004AAD;
 }
 
 
 .Owner-header, .Patient-header {
-  font-size: 3em;
-  text-align: center;
+	font-size: 3em;
+	text-align: center;
 }
 
 .patient-owner-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  flex-wrap: nowrap;
-  margin: 20px;
-  gap: 20px;
-  overflow-x: auto
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+	flex-wrap: nowrap;
+	margin: 20px;
+	gap: 20px;
+	overflow-x: auto
 }
 
 .show-form-button {
-    font-size: larger;
-    width: 500px;
-    border-radius: 10px;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    background-color: #f4f8fb;
-    transition: background-color 0.15s, color 0.15s;
-    box-sizing: border-box;
-    border: 1px solid #004AAD;
-    border-bottom: 2px solid #004AAD;
+		font-size: larger;
+		width: 800px;
+		border-radius: 10px;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+		background-color: #f4f8fb;
+		transition: background-color 0.15s, color 0.15s;
+		box-sizing: border-box;
+		border: 1px solid #004AAD;
+		border-bottom: 2px solid #004AAD;
 }
 
 .add-patient-button {
-  position: relative;
-  right: 20px;
-  font-size: larger;
-  border-radius: 10px;
-  align-items: left;
-  box-shadow: 0 6px 10px rgba(132, 104, 104, 0.15);
-  background-color: #f4f8fb;
-  text-align: center;
+	position: relative;
+	right: 20px;
+	font-size: larger;
+	border-radius: 10px;
+	align-items: left;
+	box-shadow: 0 6px 10px rgba(132, 104, 104, 0.15);
+	background-color: #f4f8fb;
+	text-align: center;
+}
+
+.add-patient-client-button {
+	font-size: larger;
+	border-radius: 10px;
+	align-items: left;
+	box-shadow: 0 6px 10px rgba(132, 104, 104, 0.15);
+	background-color: #f4f8fb;
+	text-align: center;
 }
 
 .add-patient-container {
-  display: flex;
-  justify-content: flex-end;
+	display: flex;
+	justify-content: flex-end;
 }
 
-.show-form-button:hover, .add-patient-button:hover {
-  background-color: #004AAD;
-  color: white;
-  font: 1.2em;
+.show-form-button {
+	display: inline-block;
+	margin: 20px 0;
+}
+
+.add-message {
+	margin: 10px 0;
+}
+
+.show-form-button:hover, .add-patient-button:hover, .add-patient-client-button:hover {
+	background-color: #004AAD;
+	border-color: #d3e3f9;
+	color: white;
+	font: 1.2em;
+}
+
+
+.add-patient-form {
+	position: relative;
+	padding: 20px 150px 20px 30px;
+	flex: 1;
+	border: solid #004AAD;
+	border-radius: 10px;
+	width: 90%;
+	text-align: left;
+	margin: 10px auto;
+	text-decoration: none;
+	color: black;
+	font-size: 1.1em;
+	line-height: 1.6;
+	background-color: #e4eef7;
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+	box-sizing: border-box;
+
+}
+
+.no-patient-selected{
+	text-align: center;
+	flex: 1;
+	border: solid #004AAD;
+	border-radius: 10px;
+	width: 40%;
+	margin: auto;
+	text-decoration: none;
+	color: black;
+	font-size: 1.1em;
+	line-height: 1.6;
+	background-color: #e4eef7;
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+	box-sizing: border-box;
+}
+
+.add-message {
+	left:50%;
+	position: fixed;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	background: linear-gradient(90deg, #FFFEFE, #F2F6FC);
+	border: 2px solid #004AAD;
+	border-radius: 5px;
+	width: 50%;
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+	font-size: 2em;
+}
+
+.footer {
+ position: fixed;
+ width: 100%;
+ bottom: 0;
+ text-align: center;
+ background: linear-gradient(90deg, #FFFEFE, #F2F6FC);
+ border-top: 2px solid #004AAD;
+}
+
+.footer a:hover {
+	background-color: #004AAD;
+	border-color: #d3e3f9;
+	border-radius: 5px;
+	color: white;
 }

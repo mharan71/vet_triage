@@ -5,16 +5,16 @@ import Triage from './Components/Triage';
 import Patients from './Components/Patients';
 
 function App() {
-  return (
-    <Router>
-    <div className="App">
-      <Routes>
-        <Route path= "/" element= {<Triage/>} />
-        <Route path= "/patients" element= {<Patients/>} />
-      </Routes>
-    </div>
-    </Router>
-  );
+	return (
+		<Router>
+		<div className="App">
+			<Routes>
+				<Route path= "/" element= {<Triage/>} />
+				<Route path= "/patients" element= {<Patients/>} />
+			</Routes>
+		</div>
+		</Router>
+	);
 }
 
 export default App;
